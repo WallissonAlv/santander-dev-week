@@ -1,4 +1,4 @@
-package me.project.santander_dev_week_2024_v20.entities;
+package me.project.santander_dev_week_2024_v20.domain.models;
 
 import java.io.Serializable;
 import java.util.List;
@@ -33,6 +33,13 @@ public class User implements Serializable{
 	
 	// PRINCIPALS METHODS -----------------------------
 	public User() {}
+	public User(Long id, String name, Account account, Card card) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.account = account;
+		this.card = card;
+	}
 	public User(Long id, String name, Account account, Card card, List<Feature> features, List<News> news) {
 		super();
 		this.id = id;

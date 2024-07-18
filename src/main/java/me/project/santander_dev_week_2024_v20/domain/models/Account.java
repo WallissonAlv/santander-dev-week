@@ -1,4 +1,4 @@
-package me.project.santander_dev_week_2024_v20.entities;
+package me.project.santander_dev_week_2024_v20.domain.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -32,6 +32,13 @@ public class Account implements Serializable {
 
 	// PRINCIPALS METHODS -----------------------------
 	public Account() {
+	}
+	public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal creditLimit) {
+		this.id = id;
+		this.number = number;
+		this.agency = agency;
+		this.balance = balance;
+		this.creditLimit = creditLimit;
 	}
 	public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal creditLimit, User user) {
 		super();
@@ -92,7 +99,18 @@ public class Account implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public BigDecimal getCreditLimit() {
+		return creditLimit;
+	}
+	public void setCreditLimit(BigDecimal creditLimit) {
+		this.creditLimit = creditLimit;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

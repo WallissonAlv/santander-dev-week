@@ -1,4 +1,4 @@
-package me.project.santander_dev_week_2024_v20.entities;
+package me.project.santander_dev_week_2024_v20.domain.models;
 
 import java.io.Serializable;
 
