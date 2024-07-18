@@ -3,32 +3,47 @@ package me.project.santander_dev_week_2024_v20.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_users")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	
 	// ATTRIBUTES -------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	@OneToOne
 	private Account account;
+	@OneToOne
 	private Card card;
-	private List<Feature> feature;
+	@OneToMany
+	private List<Feature> features;
+	@OneToMany
 	private List<News> news;
-	
 	
 	// PRINCIPALS METHODS -----------------------------
 	public User() {}
-
-	public User(Long id, String name, Account account, Card card, List<Feature> feature, List<News> news) {
+	public User(Long id, String name, Account account, Card card, List<Feature> features, List<News> news) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.account = account;
 		this.card = card;
-		this.feature = feature;
+		this.features = features;
 		this.news = news;
 	}
-	
-	
+
+
 	// ACCESS METHODS ---------------------------------
 	public Long getId() {
 		return id;
@@ -62,21 +77,6 @@ public class User implements Serializable{
 		this.card = card;
 	}
 
-	public List<Feature> getFeature() {
-		return feature;
-	}
-
-	public void setFeature(List<Feature> feature) {
-		this.feature = feature;
-	}
-
-	public List<News> getNews() {
-		return news;
-	}
-
-	public void setNews(List<News> news) {
-		this.news = news;
-	}
 
 	@Override
 	public int hashCode() {

@@ -3,60 +3,96 @@ package me.project.santander_dev_week_2024_v20.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_accounts")
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	
 	// ATTRIBUTES -------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String number;
 	private String agency;
+	@Column(precision = 11, scale = 2)
 	private BigDecimal balance;
-	private BigDecimal limit;
-	
-	
+	@Column(precision = 11, scale = 2)
+	private BigDecimal creditLimit;
+
+	@OneToOne
+	private User user;
+
 	// PRINCIPALS METHODS -----------------------------
-	public Account (){}
-	public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal limit) {
+	public Account() {
+	}
+	public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal creditLimit, User user) {
+		super();
 		this.id = id;
 		this.number = number;
 		this.agency = agency;
 		this.balance = balance;
-		this.limit = limit;
+		this.creditLimit = creditLimit;
+		this.user = user;
 	}
-	
-	
+
+
 	// ACCESS METHODS ---------------------------------
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNumber() {
+
+	public String getBigDecimal() {
 		return number;
 	}
-	public void setNumber(String number) {
+
+	public void setBigDecimal(String number) {
 		this.number = number;
 	}
+
 	public String getAgency() {
 		return agency;
 	}
+
 	public void setAgency(String agency) {
 		this.agency = agency;
 	}
+
 	public BigDecimal getBalance() {
 		return balance;
 	}
+
 	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
 	}
+
 	public BigDecimal getLimit() {
-		return limit;
+		return creditLimit;
 	}
-	public void setLimit(BigDecimal limit) {
-		this.limit = limit;
+
+	public void setLimit(BigDecimal creditLimit) {
+		this.creditLimit = creditLimit;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,6 +100,7 @@ public class Account implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -2,22 +2,36 @@ package me.project.santander_dev_week_2024_v20.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_cards")
 public class Card implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
 	// ATTRIBUTES -------------------------------------
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String number;
 	private String description;
 	
+	@OneToOne
+	private User user;
 	
 	// PRINCIPALS METHODS -----------------------------
 	public Card() {}
-	public Card(Long id, String number, String description) {
+	public Card(Long id, String number, String description, User user) {
 		this.id = id;
 		this.number = number;
 		this.description = description;
+		this.user = user;
 	}
 
 	
@@ -39,6 +53,12 @@ public class Card implements Serializable{
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	@Override
 	public int hashCode() {
