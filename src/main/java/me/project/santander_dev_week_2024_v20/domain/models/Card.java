@@ -1,12 +1,13 @@
 package me.project.santander_dev_week_2024_v20.domain.models;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,20 +20,12 @@ public class Card implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private String number;
-	private String description;
-	
-	@OneToOne
-	private User user;
+	@Column(name = "available_limit",precision = 11, scale = 2)
+	private BigDecimal limit;
 	
 	// PRINCIPALS METHODS -----------------------------
-	public Card() {}
-	public Card(Long id, String number, String description, User user) {
-		this.id = id;
-		this.number = number;
-		this.description = description;
-		this.user = user;
-	}
 
 	
 	// ACCESS METHODS ---------------------------------
@@ -48,17 +41,11 @@ public class Card implements Serializable{
 	public void setNumber(String number) {
 		this.number = number;
 	}
-	public String getDescription() {
-		return description;
+	public BigDecimal getLimit() {
+		return limit;
 	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setLimit(BigDecimal limit) {
+		this.limit = limit;
 	}
 	@Override
 	public int hashCode() {

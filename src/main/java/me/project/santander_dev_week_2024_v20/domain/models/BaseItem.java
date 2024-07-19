@@ -20,12 +20,6 @@ public abstract class BaseItem implements Serializable{
 
 	
 	// PRINCIPALS METHODS -----------------------------
-	public BaseItem() {}
-	public BaseItem(Long id, String icon, String description) {
-		this.id = id;
-		this.icon = icon;
-		this.description = description;
-	}
 
 	
 	// ACCESS METHODS ---------------------------------

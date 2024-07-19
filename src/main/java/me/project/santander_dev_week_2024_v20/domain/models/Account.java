@@ -20,6 +20,7 @@ public class Account implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private String number;
 	private String agency;
 	@Column(precision = 11, scale = 2)
@@ -31,24 +32,6 @@ public class Account implements Serializable {
 	private User user;
 
 	// PRINCIPALS METHODS -----------------------------
-	public Account() {
-	}
-	public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal creditLimit) {
-		this.id = id;
-		this.number = number;
-		this.agency = agency;
-		this.balance = balance;
-		this.creditLimit = creditLimit;
-	}
-	public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal creditLimit, User user) {
-		super();
-		this.id = id;
-		this.number = number;
-		this.agency = agency;
-		this.balance = balance;
-		this.creditLimit = creditLimit;
-		this.user = user;
-	}
 
 
 	// ACCESS METHODS ---------------------------------

@@ -3,7 +3,9 @@ package me.project.santander_dev_week_2024_v20.domain.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,9 +24,9 @@ public class User implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Account account;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Card card;
 	@OneToMany
 	private List<Feature> features;
@@ -32,23 +34,6 @@ public class User implements Serializable{
 	private List<News> news;
 	
 	// PRINCIPALS METHODS -----------------------------
-	public User() {}
-	public User(Long id, String name, Account account, Card card) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.account = account;
-		this.card = card;
-	}
-	public User(Long id, String name, Account account, Card card, List<Feature> features, List<News> news) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.account = account;
-		this.card = card;
-		this.features = features;
-		this.news = news;
-	}
 
 
 	// ACCESS METHODS ---------------------------------
