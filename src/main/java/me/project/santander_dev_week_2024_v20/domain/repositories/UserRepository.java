@@ -8,4 +8,7 @@ import me.project.santander_dev_week_2024_v20.domain.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>  {
 
+	boolean existsByAccountNumber(String number);
+	boolean existsByCardNumber(String number);
+	
 }
