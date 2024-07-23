@@ -2,7 +2,6 @@
 Este repositório representa a segunda versão do meu projeto final na Digital Innovation One. Aqui pude reforçar todo o meu aprendizado e implementar funcionalidades de forma mais profissional, focando nos detalhes para garantir o máximo desempenho.
 Nesta aplicação, é possível cadastrar, consultar, atualizar e deletar usuários através do Swagger/OpenAPI. Para aqueles interessados em realizar testes, segue a estrutura JSON:
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/WallissonAlv/santander-dev-week/blob/main/LICENSE)
 
 ```json
 {
@@ -31,16 +30,13 @@ Nesta aplicação, é possível cadastrar, consultar, atualizar e deletar usuár
   ]
 }
 ```
+
 ## Principais Tecnologias
  - **Java 8**: Versão LTS do Java para tirar vantagem das inovações que essa linguagem robusta e amplamente utilizada oferece;
  - **Spring Boot 2.7.12**: Maximiza a produtividade do desenvolvedor por meio de sua poderosa premissa de autoconfiguração;
  - **Spring Data JPA**: Simplificar nossa camada de acesso aos dados, facilitando a integração com bancos de dados SQL;
  - **OpenAPI (Swagger)**: Vamos criar uma documentação de API eficaz e fácil de entender usando a OpenAPI (Swagger), perfeitamente alinhada com a alta produtividade que o Spring Boot oferece;
  - **Railway**: facilita o deploy e monitoramento de nossas soluções na nuvem, além de oferecer diversos bancos de dados como serviço e pipelines de CI/CD.
-
-## [Link do Figma](https://www.figma.com/file/0ZsjwjsYlYd3timxqMWlbj/SANTANDER---Projeto-Web%2FMobile?type=design&node-id=1421%3A432&mode=design&t=6dPQuerScEQH0zAn-1)
-
-O Figma foi utilizado para a abstração do domínio desta API, sendo útil na análise e projeto da solução.
 
 ## Diagrama de Classes (Domínio da API)
 
@@ -81,3 +77,9 @@ classDiagram
   User "1" *-- "1" Card
   User "1" *-- "N" News
 ```
+
+## [Link do Figma](https://www.figma.com/file/0ZsjwjsYlYd3timxqMWlbj/SANTANDER---Projeto-Web%2FMobile?type=design&node-id=1421%3A432&mode=design&t=6dPQuerScEQH0zAn-1)
+
+O Figma foi utilizado para a abstração do domínio desta API, sendo útil na análise e projeto da solução.
+
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/WallissonAlv/santander-dev-week/blob/main/LICENSE)
