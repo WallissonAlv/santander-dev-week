@@ -14,6 +14,14 @@ public class AccountDto {
 	private BigDecimal creditLimit;
 
 	// PRINCIPALS METHODS -----------------------------
+	public AccountDto() {}
+	public AccountDto(Long id, String number, String agency, BigDecimal balance, BigDecimal creditLimit) {
+		this.id = id;
+		this.number = number;
+		this.agency = agency;
+		this.balance = balance;
+		this.creditLimit = creditLimit;
+	}
 	public AccountDto(Account obj) {
 		this.id = obj.getId();
 		this.number = obj.getNumber();
@@ -32,5 +40,34 @@ public class AccountDto {
 	}
 
 	// ACCESS METHODS ---------------------------------
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public String getAgency() {
+		return agency;
+	}
+	public void setAgency(String agency) {
+		this.agency = agency;
+	}
+	public BigDecimal getBalance() {
+		return balance;
+	}
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
+	public BigDecimal getCreditLimit() {
+		return creditLimit;
+	}
+	public void setCreditLimit(BigDecimal creditLimit) {
+		this.creditLimit = creditLimit;
+	}
 }

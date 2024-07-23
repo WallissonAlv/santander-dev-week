@@ -12,6 +12,12 @@ public class CardDto {
 	private BigDecimal limit;
 	
 	// PRINCIPALS METHODS -----------------------------
+	public CardDto() {}
+	public CardDto(Long id, String number, BigDecimal limit) {
+		this.id = id;
+		this.number = number;
+		this.limit = limit;
+	}
 	public CardDto(Card obj) {
 		this.id = obj.getId();
 		this.number = obj.getNumber();
@@ -25,5 +31,22 @@ public class CardDto {
 		return model;
 	}
 	// ACCESS METHODS ---------------------------------
-
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public BigDecimal getLimit() {
+		return limit;
+	}
+	public void setLimit(BigDecimal limit) {
+		this.limit = limit;
+	}
 }

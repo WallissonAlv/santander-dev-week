@@ -41,8 +41,8 @@ public class UserResources {
 	})
 	public ResponseEntity<List<UserDto>> findAll(){
 		List<User> users = userServiceImpl.findAll();
-		List<UserDto> usersDto = users.stream().map(UserDto::new).collect(Collectors.toList());
-		return ResponseEntity.ok().body(usersDto);
+		List<UserDto> userDto = users.stream().map(UserDto::new).collect(Collectors.toList());
+		return ResponseEntity.ok().body(userDto);
 	}
 	
 	@GetMapping("/{id}")

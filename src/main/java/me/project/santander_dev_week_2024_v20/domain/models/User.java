@@ -28,10 +28,10 @@ public class User implements Serializable{
 	private Account account;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Card card;
-	@OneToMany
-	private List<Feature> features;
-	@OneToMany
-	private List<News> news;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Feature> features;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<News> news;
 	
 	// PRINCIPALS METHODS -----------------------------
 
