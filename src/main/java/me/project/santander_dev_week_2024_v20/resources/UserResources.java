@@ -25,10 +25,10 @@ import me.project.santander_dev_week_2024_v20.domain.models.User;
 import me.project.santander_dev_week_2024_v20.resources.dto.UserDto;
 import me.project.santander_dev_week_2024_v20.services.impl.UserServiceImpl;
 
-@CrossOrigin
 @RestController
 @RequestMapping(value = "/users")
 @Tag(name = "User Resource", description = "RESTful api for managing users.")
+@CrossOrigin(origins = "https://santander-dev-week-2024-v20-production.up.railway.app")
 public class UserResources {
 	
 	@Autowired
